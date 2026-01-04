@@ -3,34 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz for my beloved ex!</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <title>Quiz for My Ex</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="quiz-container">
-        <h1>Quiz for my Ex</h1>
+        <h1>Quiz for My Ex</h1>
 
         <div id="question-container">
-            <p id="question">What's my favorite color?</p> <!-- Dynamic Question here -->
-            <div id="options"></div> <!-- Dynamic Options here -->
+            <p id="question"></p> <!-- Dynamic question here -->
+            <div id="options"></div> <!-- Dynamic options here -->
             <button onclick="nextQuestion()">Next</button>
         </div>
 
         <div id="result-container" style="display: none;">
-            <h2>Final Question:</h2>
-            <p>May I be your boyfriend once again, my love??</p>
-            <button onclick="showAnswer('yes')">Yes</button>
-            <button onclick="showAnswer('no')">No</button>
-        </div>
-
-        <div id="answer-container" style="display: none;">
-            <h2>Your answer: <span id="final-answer"></span></h2>
+            <h2>Final Question Answer:</h2>
+            <p id="final-answer"></p> <!-- Final answer displayed here -->
         </div>
     </div>
 
-    <script src="script.js"></script> <!-- Link to your JS file -->
+    <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
