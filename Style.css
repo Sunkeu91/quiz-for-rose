@@ -1,100 +1,110 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    font-family: 'Garamond', serif; /* Elegant font often used in gothic designs */
+    background-color: #1a1a1a; /* Dark background for a gothic feel */
+    color: #f1f1f1; /* Light text color for contrast */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    color: #333;
-}
-
-/* Styling for the quiz container */
-#quiz-container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 320px;
+    overflow: hidden;
     text-align: center;
 }
 
-/* Styling for the heading */
+/* Gothic Borders and Shadows */
+#quiz-container {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid #6a0d00; /* Deep red border for gothic effect */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Shadow for a mysterious feel */
+    width: 50%;
+    max-width: 600px;
+    min-width: 300px;
+}
+
 h1 {
-    color: #ff8c00;
-    font-size: 24px;
+    font-family: 'Creepster', cursive; /* Gothic style font */
+    font-size: 3rem;
+    color: #6a0d00; /* Deep red color */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Shadow effect */
     margin-bottom: 20px;
 }
 
-/* Question styling */
+/* Styling for the Question Text */
 #question {
-    font-size: 18px;
+    font-size: 1.5rem;
     margin-bottom: 20px;
-    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-/* Styling for the options (radio buttons) */
+/* Styling for the Options (Radio Buttons) */
 #options {
+    margin: 20px 0;
     text-align: left;
-    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+#options div {
+    margin: 15px 0;
 }
 
 input[type="radio"] {
+    accent-color: #6a0d00; /* Deep red color for radio buttons */
     margin-right: 10px;
 }
 
-/* Label styling */
-label {
-    font-size: 16px;
-    margin-right: 20px;
-    display: inline-block;
-    cursor: pointer;
-}
-
-/* Button styling */
+/* Styling for the Buttons */
 button {
-    background-color: #ff8c00;
-    color: white;
-    padding: 10px 20px;
+    background-color: #6a0d00;
+    color: #f1f1f1;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Garamond', serif;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 button:hover {
-    background-color: #ff6a00;
+    background-color: #9e1c00; /* Lighter red on hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Styling for result container */
+/* Result Container */
 #result-container {
-    margin-top: 20px;
-}
-
-#result-container button {
-    margin-top: 10px;
-}
-
-/* Styling for the final answer container */
-#answer-container {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* Hide containers initially */
-#result-container, #answer-container {
     display: none;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
 
-/* Styling for the input text box (in case you want text input questions) */
-input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    width: 80%;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+/* Gothic Pattern Background */
+body {
+    background-image: url('https://www.transparenttextures.com/patterns/black-linen.png'), linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(50, 50, 50, 0.8)); /* Dark linen pattern with gradient */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Final Answer Text */
+#final-answer {
+    font-size: 1.5rem;
+    color: #f1f1f1;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Style for the Buttons in the Final Answer Section */
+button {
+    font-size: 1rem;
+    margin-top: 20px;
+    background-color: #6a0d00;
+}
+
+button:active {
+    background-color: #9e1c00;
 }
