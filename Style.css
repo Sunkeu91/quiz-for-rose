@@ -4,11 +4,17 @@ let answers = [];
 const questions = [
     "What's my favorite color?", 
     "What's my favorite food?"
+  " do you like me and would you ever wanna get back with me", 
+  " do you still have feelings for me?" 
+  " despite our hardships could you forgive me enough to come back"
 ];
 
 const correctAnswers = [
-    "blue", 
-    "pizza"
+    "purple", 
+    "flan"
+    "yes"
+    
+
 ];
 
 function nextQuestion() {
@@ -39,4 +45,5 @@ function showAnswer(answer) {
 
     document.getElementById('result-container').style.display = 'none';
     document.getElementById('answer-container').style.display = 'block';
+
 }
