@@ -48,11 +48,11 @@ function showQuestion() {
 
 // Function to check the answer and move to the next question
 function nextQuestion() {
-    const selectedOption = document.querySelector('input[name="answer"]:checked');
-    
+    const selectedOption = document.querySelector('input[name="answer"]:checked');  // Get the selected radio button
+
     if (!selectedOption) {
         alert("Please select an answer!");  // Alert if no answer is selected
-        return;
+        return;  // Stop the function if no option is selected
     }
 
     const userAnswer = selectedOption.value;  // Get the value of the selected radio button
@@ -65,12 +65,11 @@ function nextQuestion() {
         alert("Hmm... not quite, but let's continue.");
     }
 
-    // Move to the next question
     currentQuestion++;
 
     // If there are more questions, update the question, else show the result
     if (currentQuestion < questions.length) {
-        showQuestion();
+        showQuestion();  // Display the next question
         document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false);  // Reset radio buttons
     } else {
         document.getElementById('question-container').style.display = 'none';
@@ -89,3 +88,4 @@ function showAnswer(answer) {
 
 // Show the first question when the page loads
 window.onload = showQuestion;
+
