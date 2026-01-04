@@ -1,44 +1,91 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+let currentQuestion = 0;
+let answers = [];
+
+const questions = [
+    {
+        question: "What's my favorite color?",
+        options: ["purple", "red", "blue", "green"],
+        correctAnswer: "purple"
+    },
+    {
+        question: "What's my favorite food?",
+        options: ["flan", "pizza", "burger", "sushi"],
+        correctAnswer: "flan"
+    },
+    {
+        question: "Do you like me and would you ever wanna get back with me?",
+        options: ["yes", "no"],
+        correctAnswer: "yes"
+    },
+    {
+        question: "Despite our hardships, could you forgive me enough to come back?",
+        options: ["yes", "no"],
+        correctAnswer: "yes"
+    }
+];
+
+// Function to display the current question
+function showQuestion() {
+    const questionData = questions[currentQuestion];
+    
+    // Display the question text
+    document.getElementById('question').innerText = questionData.question;
+
+    // Clear previous options
+    const optionsContainer = document.getElementById('options');
+    optionsContainer.innerHTML = '';
+
+    // Create radio buttons for each option
+    questionData.options.forEach((option, index) => {
+        const optionElement = document.createElement('div');
+        optionElement.innerHTML = `
+            <input type="radio" name="answer" value="${option}" id="option${index}" />
+            <label for="option${index}">${option}</label>
+        `;
+        optionsContainer.appendChild(optionElement);
+    });
 }
 
-#quiz-container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
+// Function to check the answer and move to the next question
+function nextQuestion() {
+    const selectedOption = document.querySelector('input[name="answer"]:checked');
+    
+    if (!selectedOption) {
+        alert("Please select an answer!");  // Alert if no answer is selected
+        return;
+    }
+
+    const userAnswer = selectedOption.value;  // Get the value of the selected radio button
+    answers.push(userAnswer);  // Save the user's answer
+
+    // Check if the answer is correct
+    if (userAnswer === questions[currentQuestion].correctAnswer) {
+        alert("Correct! Let's move on!");
+    } else {
+        alert("Hmm... not quite, but let's continue.");
+    }
+
+    // Move to the next question
+    currentQuestion++;
+
+    // If there are more questions, update the question, else show the result
+    if (currentQuestion < questions.length) {
+        showQuestion();
+        document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false);  // Reset radio buttons
+    } else {
+        document.getElementById('question-container').style.display = 'none';
+        document.getElementById('result-container').style.display = 'block';
+    }
 }
 
-h1 {
-    color: #ff8c00;
+// Function to show the final answer
+function showAnswer(answer) {
+    const finalAnswer = answer === 'yes' ? "Yay! I'm so happy!" : "That's okay, maybe another time. 😅";
+    document.getElementById('final-answer').innerText = finalAnswer;
+
+    document.getElementById('result-container').style.display = 'none';
+    document.getElementById('answer-container').style.display = 'block';
 }
 
-input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #ff8c00;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #ff6a00;
-}
+// Show the first question when the page loads
+window.onload = showQuestion;
