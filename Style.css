@@ -18,32 +18,37 @@ const correctAnswers = [
 ];
 
 function nextQuestion() {
-    const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
-    answers.push(userAnswer);
+    // Get the selected radio button (for multiple-choice) or text input (if you’re using text)
+    const selectedOption = document.querySelector('input[name="answer"]:checked'); 
 
-    // Check if the answer is correct (you can customize this)
-    if (userAnswer === correctAnswers[currentQuestion].toLowerCase()) {
+    if (!selectedOption) {
+        alert("Please select an answer!");  // If no answer is selected, show an alert
+        return;  // Stop the function if no option is selected
+    }
+
+    const userAnswer = selectedOption.value;  // Get the value of the selected radio button or text input
+    answers.push(userAnswer);  // Push the user's answer to the answers array
+
+    // Check if the answer is correct
+    if (userAnswer === correctAnswers[currentQuestion]) {
         alert("Correct! Let's move on!");
     } else {
         alert("Hmm... not quite, but let's continue.");
     }
 
+    // Move to the next question
     currentQuestion++;
 
+    // If there are more questions, update the question, else show the result
     if (currentQuestion < questions.length) {
         document.getElementById('question').innerText = questions[currentQuestion];
-        document.getElementById('answer').value = '';
+        
+        // Reset radio buttons or text input for next question
+        document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false);
+        document.getElementById('answer').value = '';  // Reset the text input value
+
     } else {
         document.getElementById('question-container').style.display = 'none';
         document.getElementById('result-container').style.display = 'block';
     }
-}
-
-function showAnswer(answer) {
-    const finalAnswer = answer === 'yes' ? "Yay! I'm so happy!" : "That's okay, maybe another time. 😅";
-    document.getElementById('final-answer').innerText = finalAnswer;
-
-    document.getElementById('result-container').style.display = 'none';
-    document.getElementById('answer-container').style.display = 'block';
-
 }
