@@ -89,3 +89,4 @@ function showAnswer(answer) {
 // Show the first question when the page loads
 window.onload = showQuestion;
 
+
