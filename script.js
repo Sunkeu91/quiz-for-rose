@@ -3,27 +3,27 @@ let answers = [];
 
 const questions = [
     {
-        question: "What's your favorite color?",  // First question
-        options: ["Red", "Blue", "Green", "Purple"],  // Options
-        correctAnswer: "Purple"  // Correct answer
+        question: "What's your favorite color?",
+        options: ["Red", "Blue", "Green", "Purple"],
+        correctAnswer: "Purple"
     },
     {
-        question: "Do you still have feelings?",  // Second question
-        options: ["Yes", "No"],  // Options
-        correctAnswer: "Yes"  // Correct answer
-    },
-    {
-        question: "Despite our hardships, do you still think about our relationship?",  // Third question
+        question: "Do you still have feelings?",
         options: ["Yes", "No"],
         correctAnswer: "Yes"
     },
     {
-        question: "Do you want to have a relationship with me?",  // Fourth question
+        question: "Despite our hardships, do you still think about our relationship?",
         options: ["Yes", "No"],
         correctAnswer: "Yes"
     },
     {
-        question: "Will you be my girlfriend once again?",  // Fifth (final) question
+        question: "Do you want to have a relationship with me?",
+        options: ["Yes", "No"],
+        correctAnswer: "Yes"
+    },
+    {
+        question: "Will you be my girlfriend once again?",
         options: ["Yes", "No"],
         correctAnswer: "Yes"
     }
@@ -32,14 +32,11 @@ const questions = [
 // Show current question and options
 function showQuestion() {
     const questionData = questions[currentQuestion];
-    
-    // Display the question text
     document.getElementById('question').innerText = questionData.question;
     
     const optionsContainer = document.getElementById('options');
-    optionsContainer.innerHTML = '';  // Clear previous options
+    optionsContainer.innerHTML = ''; // Clear previous options
     
-    // Create radio buttons for each option
     questionData.options.forEach((option, index) => {
         const optionElement = document.createElement('div');
         optionElement.innerHTML = `
@@ -55,12 +52,12 @@ function nextQuestion() {
     const selectedOption = document.querySelector('input[name="answer"]:checked');
     
     if (!selectedOption) {
-        alert("Please select an answer!");  // Alert if no answer is selected
-        return;  // Stop the function if no option is selected
+        alert("Please select an answer!"); 
+        return; 
     }
 
-    const userAnswer = selectedOption.value;  // Get the selected answer
-    answers.push(userAnswer);  // Save the user's answer
+    const userAnswer = selectedOption.value;
+    answers.push(userAnswer); 
 
     // Check if the answer is correct
     if (userAnswer === questions[currentQuestion].correctAnswer) {
@@ -71,26 +68,28 @@ function nextQuestion() {
 
     currentQuestion++;
 
-    // If there are more questions, update the question, else show the result
     if (currentQuestion < questions.length) {
-        showQuestion();  // Show the next question
-        document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false);  // Reset radio buttons
+        showQuestion();  
+        document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false); 
     } else {
-        document.getElementById('question-container').style.display = 'none';
-        document.getElementById('result-container').style.display = 'block';
+        displayResults();  // Call function to display final result
     }
 }
 
-// Function to show the final result (answer to "Will you be my girlfriend once again?")
-function showAnswer(answer) {
-    const finalAnswer = answer === 'yes' ? "Yay! I'm so happy!" : "That's okay, maybe another time. 😅";
-    document.getElementById('final-answer').innerText = finalAnswer;
-
-    document.getElementById('result-container').style.display = 'none';
-    document.getElementById('answer-container').style.display = 'block';
+// Display the final result after all questions
+function displayResults() {
+    const resultContainer = document.getElementById('result-container');
+    resultContainer.style.display = 'block';
+    
+    const finalQuestionAnswer = answers[answers.length - 1];  // Last answer, should be "Will you be my girlfriend once again?"
+    const finalMessage = finalQuestionAnswer === 'Yes' ? "Yay! I'm so happy!" : "That's okay, maybe another time. 😅";
+    
+    document.getElementById('final-answer').innerText = finalMessage;
 }
 
-window.onload = showQuestion;  // Show the first question when the page loads // Show the first question when the page loads
+// Initialize the quiz on page load
+window.onload = showQuestion; // Show the first question when the page loads // Show the first question when the page loads
+
 
 
 
