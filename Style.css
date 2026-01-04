@@ -1,54 +1,100 @@
-let currentQuestion = 0;
-let answers = [];
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+}
 
-const questions = [
-    "What's my favorite color?", 
-    "What's my favorite food?"
-  " do you like me and would you ever wanna get back with me", 
-  " do you still have feelings for me?" 
-  " despite our hardships could you forgive me enough to come back"
-];
+/* Styling for the quiz container */
+#quiz-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    text-align: center;
+}
 
-const correctAnswers = [
-    "purple", 
-    "flan"
-    "yes"
-    
+/* Styling for the heading */
+h1 {
+    color: #ff8c00;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
-];
+/* Question styling */
+#question {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
 
-function nextQuestion() {
-    // Get the selected radio button (for multiple-choice) or text input (if you’re using text)
-    const selectedOption = document.querySelector('input[name="answer"]:checked'); 
+/* Styling for the options (radio buttons) */
+#options {
+    text-align: left;
+    margin-bottom: 20px;
+}
 
-    if (!selectedOption) {
-        alert("Please select an answer!");  // If no answer is selected, show an alert
-        return;  // Stop the function if no option is selected
-    }
+input[type="radio"] {
+    margin-right: 10px;
+}
 
-    const userAnswer = selectedOption.value;  // Get the value of the selected radio button or text input
-    answers.push(userAnswer);  // Push the user's answer to the answers array
+/* Label styling */
+label {
+    font-size: 16px;
+    margin-right: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
 
-    // Check if the answer is correct
-    if (userAnswer === correctAnswers[currentQuestion]) {
-        alert("Correct! Let's move on!");
-    } else {
-        alert("Hmm... not quite, but let's continue.");
-    }
+/* Button styling */
+button {
+    background-color: #ff8c00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
 
-    // Move to the next question
-    currentQuestion++;
+button:hover {
+    background-color: #ff6a00;
+}
 
-    // If there are more questions, update the question, else show the result
-    if (currentQuestion < questions.length) {
-        document.getElementById('question').innerText = questions[currentQuestion];
-        
-        // Reset radio buttons or text input for next question
-        document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false);
-        document.getElementById('answer').value = '';  // Reset the text input value
+/* Styling for result container */
+#result-container {
+    margin-top: 20px;
+}
 
-    } else {
-        document.getElementById('question-container').style.display = 'none';
-        document.getElementById('result-container').style.display = 'block';
-    }
+#result-container button {
+    margin-top: 10px;
+}
+
+/* Styling for the final answer container */
+#answer-container {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Hide containers initially */
+#result-container, #answer-container {
+    display: none;
+}
+
+/* Styling for the input text box (in case you want text input questions) */
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 80%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
