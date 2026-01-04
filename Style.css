@@ -1,7 +1,7 @@
 body {
-    font-family: 'Garamond', serif; /* Elegant font often used in gothic designs */
-    background-color: #1a1a1a; /* Dark background for a gothic feel */
-    color: #f1f1f1; /* Light text color for contrast */
+    font-family: 'Garamond', serif;
+    background-color: #1a1a1a !important; /* Dark background */
+    color: #f1f1f1;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -10,6 +10,10 @@ body {
     align-items: center;
     overflow: hidden;
     text-align: center;
+    background-image: url('https://www.transparenttextures.com/patterns/black-linen.png'), 
+                      linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(50, 50, 50, 0.8)) !important; /* Gothic texture with gradient */
+    background-size: cover !important;
+    background-position: center !important;
 }
 
 /* Gothic Borders and Shadows */
@@ -84,13 +88,6 @@ button:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
 
-/* Gothic Pattern Background */
-body {
-    background-image: url('https://www.transparenttextures.com/patterns/black-linen.png'), linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(50, 50, 50, 0.8)); /* Dark linen pattern with gradient */
-    background-size: cover;
-    background-position: center;
-}
-
 /* Final Answer Text */
 #final-answer {
     font-size: 1.5rem;
@@ -108,3 +105,4 @@ button {
 button:active {
     background-color: #9e1c00;
 }
+
