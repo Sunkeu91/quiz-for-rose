@@ -13,7 +13,7 @@ const questions = [
         correctAnswer: "flan"
     },
     {
-        question: "Do you like me and would you ever wanna get back with me?",
+        question: "do you still have many feelings for mee?",
         options: ["yes", "no"],
         correctAnswer: "yes"
     },
@@ -88,5 +88,6 @@ function showAnswer(answer) {
 
 // Show the first question when the page loads
 window.onload = showQuestion;
+
 
 
