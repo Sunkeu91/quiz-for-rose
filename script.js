@@ -33,10 +33,11 @@ const questions = [
 function showQuestion() {
     const questionData = questions[currentQuestion];
     document.getElementById('question').innerText = questionData.question;
-    
+
     const optionsContainer = document.getElementById('options');
-    optionsContainer.innerHTML = ''; // Clear previous options
-    
+    optionsContainer.innerHTML = '';  // Clear previous options
+
+    // Create radio buttons for each option
     questionData.options.forEach((option, index) => {
         const optionElement = document.createElement('div');
         optionElement.innerHTML = `
@@ -57,7 +58,7 @@ function nextQuestion() {
     }
 
     const userAnswer = selectedOption.value;
-    answers.push(userAnswer); 
+    answers.push(userAnswer);
 
     // Check if the answer is correct
     if (userAnswer === questions[currentQuestion].correctAnswer) {
@@ -72,7 +73,7 @@ function nextQuestion() {
         showQuestion();  
         document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false); 
     } else {
-        displayResults();  // Call function to display final result
+        displayResults();  
     }
 }
 
@@ -80,15 +81,17 @@ function nextQuestion() {
 function displayResults() {
     const resultContainer = document.getElementById('result-container');
     resultContainer.style.display = 'block';
-    
-    const finalQuestionAnswer = answers[answers.length - 1];  // Last answer, should be "Will you be my girlfriend once again?"
+
+    const finalQuestionAnswer = answers[answers.length - 1]; // Last answer
     const finalMessage = finalQuestionAnswer === 'Yes' ? "Yay! I'm so happy!" : "That's okay, maybe another time. 😅";
     
     document.getElementById('final-answer').innerText = finalMessage;
 }
 
-// Initialize the quiz on page load
-window.onload = showQuestion; // Show the first question when the page loads // Show the first question when the page loads
+window.addEventListener("DOMContentLoaded", function() {
+    showQuestion();  // This ensures the DOM is ready before calling showQuestion
+});
+
 
 
 
