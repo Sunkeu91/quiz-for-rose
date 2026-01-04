@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+/* General Page Styling */
 body {
-    font-family: 'Garamond', serif;
+    font-family: 'Garamond', serif; /* Default font */
     background-color: #1a1a1a !important; /* Dark background */
     color: #f1f1f1;
     margin: 0;
@@ -10,26 +13,16 @@ body {
     align-items: center;
     overflow: hidden;
     text-align: center;
-    background-image: url('https://www.transparenttextures.com/patterns/black-linen.png'), 
-                      linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(50, 50, 50, 0.8)) !important; /* Gothic texture with gradient */
+    background-image: 
+        url('https://www.transparenttextures.com/patterns/black-linen.png'),  /* Gothic texture */
+        linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(50, 50, 50, 0.8)) !important;  /* Gradient */
     background-size: cover !important;
     background-position: center !important;
 }
 
-/* Gothic Borders and Shadows */
-#quiz-container {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-    padding: 40px;
-    border-radius: 15px;
-    border: 2px solid #6a0d00; /* Deep red border for gothic effect */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Shadow for a mysterious feel */
-    width: 50%;
-    max-width: 600px;
-    min-width: 300px;
-}
-
+/* Title (h1) - Gothic Style with Creepster Font */
 h1 {
-    font-family: 'Creepster', cursive; /* Gothic style font */
+    font-family: 'Creepster', cursive; /* Gothic font */
     font-size: 3rem;
     color: #6a0d00; /* Deep red color */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Shadow effect */
@@ -62,7 +55,7 @@ input[type="radio"] {
 
 /* Styling for the Buttons */
 button {
-    background-color: #6a0d00;
+    background-color: #6a0d00; /* Deep red color */
     color: #f1f1f1;
     border: none;
     padding: 10px 20px;
@@ -77,6 +70,18 @@ button {
 button:hover {
     background-color: #9e1c00; /* Lighter red on hover */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Styling for the Quiz Container */
+#quiz-container {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    padding: 40px;
+    border-radius: 15px;
+    border: 2px solid #6a0d00; /* Deep red border */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Shadow for a mysterious feel */
+    width: 50%;
+    max-width: 600px;
+    min-width: 300px;
 }
 
 /* Result Container */
