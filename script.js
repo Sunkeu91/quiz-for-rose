@@ -3,32 +3,33 @@ let answers = [];
 
 const questions = [
     {
-        question: "What's your favorite color?",  // Example question
-        options: ["Red", "Blue", "Green", "purple"],
-        correctAnswer: "purple"
+        question: "What's your favorite color?",  // First question
+        options: ["Red", "Blue", "Green", "Purple"],  // Options
+        correctAnswer: "Purple"  // Correct answer
     },
     {
-        question: "do you still have feelings for me?",  // Example question
-        options: ["yes", "no", "maybe", "idk"],
-        correctAnswer: "yes"
+        question: "Do you still have feelings?",  // Second question
+        options: ["Yes", "No"],  // Options
+        correctAnswer: "Yes"  // Correct answer
     },
     {
-        question: "despite our hardships do you still think abt our relationship?",  // Example question
-        options: ["yes", "no", "maybe", "idkj"],
-        correctAnswer: "yes"
-    },
-    {
-        question: "Do you want to have PS with me?",  // Your new question
+        question: "Despite our hardships, do you still think about our relationship?",  // Third question
         options: ["Yes", "No"],
-        correctAnswer: "Yes"  // You can customize the correct answer here
+        correctAnswer: "Yes"
     },
     {
-        question: "Will you be my girlfriend once again?",  // Final question
+        question: "Do you want to have a relationship with me?",  // Fourth question
         options: ["Yes", "No"],
-        correctAnswer: "Yes"  // You can customize the correct answer here as well
+        correctAnswer: "Yes"
+    },
+    {
+        question: "Will you be my girlfriend once again?",  // Fifth (final) question
+        options: ["Yes", "No"],
+        correctAnswer: "Yes"
     }
 ];
 
+// Show current question and options
 function showQuestion() {
     const questionData = questions[currentQuestion];
     
@@ -49,6 +50,7 @@ function showQuestion() {
     });
 }
 
+// Function to move to next question after user selection
 function nextQuestion() {
     const selectedOption = document.querySelector('input[name="answer"]:checked');
     
@@ -71,7 +73,7 @@ function nextQuestion() {
 
     // If there are more questions, update the question, else show the result
     if (currentQuestion < questions.length) {
-        showQuestion();
+        showQuestion();  // Show the next question
         document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false);  // Reset radio buttons
     } else {
         document.getElementById('question-container').style.display = 'none';
@@ -79,6 +81,7 @@ function nextQuestion() {
     }
 }
 
+// Function to show the final result (answer to "Will you be my girlfriend once again?")
 function showAnswer(answer) {
     const finalAnswer = answer === 'yes' ? "Yay! I'm so happy!" : "That's okay, maybe another time. 😅";
     document.getElementById('final-answer').innerText = finalAnswer;
@@ -87,7 +90,8 @@ function showAnswer(answer) {
     document.getElementById('answer-container').style.display = 'block';
 }
 
-window.onload = showQuestion;  // Show the first question when the page loads
+window.onload = showQuestion;  // Show the first question when the page loads // Show the first question when the page loads
+
 
 
 
