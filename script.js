@@ -21,6 +21,12 @@ const questions = [
         question: "Despite our hardships, could you forgive me enough to come back?",
         options: ["yes", "no"],
         correctAnswer: "yes"
+            },
+    {
+        
+            question: "Would you like to be with me?",  // Changed question text here
+        options: ["yes", "no"],
+        correctAnswer: "yes"
     }
 ];
 
@@ -88,6 +94,7 @@ function showAnswer(answer) {
 
 // Show the first question when the page loads
 window.onload = showQuestion;
+
 
 
 
