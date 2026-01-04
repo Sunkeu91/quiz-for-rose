@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz for My Ex</title>
+    <title>Quiz for my Beloved Ex!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="quiz-container">
         <h1>Quiz for My Ex</h1>
-
+        
         <div id="question-container">
-            <p id="question"></p> <!-- Dynamic question here -->
-            <div id="options"></div> <!-- Dynamic options here -->
+            <p id="question">What's your favorite color?</p>
+            <div id="options">
+                <!-- Options will be added dynamically via JavaScript -->
+            </div>
             <button onclick="nextQuestion()">Next</button>
         </div>
-
+        
         <div id="result-container" style="display: none;">
             <h2>Final Question Answer:</h2>
-            <p id="final-answer"></p> <!-- Final answer displayed here -->
+            <p id="final-answer"></p>
         </div>
     </div>
 
