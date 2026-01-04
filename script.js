@@ -23,7 +23,7 @@ const questions = [
         correctAnswer: "Yes"
     },
     {
-        question: "do you have some trust in me?",
+        question: "Do you have some trust in me?",
         options: ["Yes", "No"],
         correctAnswer: "Yes"
     }
@@ -54,7 +54,7 @@ function nextQuestion() {
     
     if (!selectedOption) {
         alert("Please select an answer!"); 
-        return; 
+        return;  // Prevents moving to next question if no answer is selected
     }
 
     const userAnswer = selectedOption.value;
@@ -89,8 +89,9 @@ function displayResults() {
 }
 
 window.addEventListener("DOMContentLoaded", function() {
-    showQuestion();  // This ensures the DOM is ready before calling showQuestion
+    showQuestion();  // Ensure DOM is ready before calling showQuestion
 });
+
 
 
 
