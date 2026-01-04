@@ -12,6 +12,11 @@ const questions = [
         options: ["flan", "pizza", "burger", "sushi"],
         correctAnswer: "flan"
     },
+    {question: " do you wanna have ps aftter this",
+     options: ["yes", "no", "maybe"],
+     correctAnswer: "yes"]
+    },
+    
     {
         question: "do you still have many feelings for mee?",
         options: ["yes", "no"],
@@ -94,6 +99,7 @@ function showAnswer(answer) {
 
 // Show the first question when the page loads
 window.onload = showQuestion;
+
 
 
 
