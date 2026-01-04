@@ -23,7 +23,7 @@ const questions = [
         correctAnswer: "Yes"
     },
     {
-        question: "Will you be my girlfriend once again?",
+        question: "do you have some trust in me?",
         options: ["Yes", "No"],
         correctAnswer: "Yes"
     }
@@ -62,7 +62,7 @@ function nextQuestion() {
 
     // Check if the answer is correct
     if (userAnswer === questions[currentQuestion].correctAnswer) {
-        alert("Correct! Let's move on!");
+        alert("Okay Nice!");
     } else {
         alert("Hmm... not quite, but let's continue.");
     }
@@ -91,6 +91,7 @@ function displayResults() {
 window.addEventListener("DOMContentLoaded", function() {
     showQuestion();  // This ensures the DOM is ready before calling showQuestion
 });
+
 
 
 
