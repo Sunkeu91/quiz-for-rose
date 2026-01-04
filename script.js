@@ -66,7 +66,7 @@ function nextQuestion() {
 
     // Check if the answer is correct
     if (userAnswer === questions[currentQuestion].correctAnswer) {
-        alert("Correct! Let's move on!");
+        alert("Great next Question");
     } else {
         alert("Hmm... not quite, but let's continue.");
     }
@@ -94,6 +94,7 @@ function showAnswer(answer) {
 
 // Show the first question when the page loads
 window.onload = showQuestion;
+
 
 
 
