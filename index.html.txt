@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Quiz to Ask You Out!</title>
+    <title>quiz for my ex</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="quiz-container">
-        <h1>Mini Quiz to Ask You Out!</h1>
+        <h1>Mini quiz for my ex</h1>
         
         <div id="question-container">
             <p id="question">What's my favorite color?</p>
@@ -32,3 +32,4 @@
 </body>
 
 </html>
+
