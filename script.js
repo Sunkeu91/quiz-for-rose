@@ -3,50 +3,41 @@ let answers = [];
 
 const questions = [
     {
-        question: "What's my favorite color?",
-        options: ["purple", "red", "blue", "green"],
+        question: "What's your favorite color?",  // Example question
+        options: ["Red", "Blue", "Green", "purple"],
         correctAnswer: "purple"
     },
     {
-        question: "What's my favorite food?",
-        options: ["flan", "pizza", "burger", "sushi"],
-        correctAnswer: "flan"
-    },
-    {
-        question: " do you wanna have ps aftter this",
-     options: ["yes", "no", "maybe"],
-     correctAnswer: "yes"]
-    },
-    
-    {
-        question: "do you still have many feelings for mee?",
-        options: ["yes", "no"],
+        question: "do you still have feelings for me?",  // Example question
+        options: ["yes", "no", "maybe", "idk"],
         correctAnswer: "yes"
     },
     {
-        question: "Despite our hardships, could you forgive me enough to come back?",
-        options: ["yes", "no"],
+        question: "despite our hardships do you still think abt our relationship?",  // Example question
+        options: ["yes", "no", "maybe", "idkj"],
         correctAnswer: "yes"
-            },
+    },
     {
-        
-            question: "Would you like to be with me?",  // Changed question text here
-        options: ["yes", "no"],
-        correctAnswer: "yes"
+        question: "Do you want to have PS with me?",  // Your new question
+        options: ["Yes", "No"],
+        correctAnswer: "Yes"  // You can customize the correct answer here
+    },
+    {
+        question: "Will you be my girlfriend once again?",  // Final question
+        options: ["Yes", "No"],
+        correctAnswer: "Yes"  // You can customize the correct answer here as well
     }
 ];
 
-// Function to display the current question
 function showQuestion() {
     const questionData = questions[currentQuestion];
     
     // Display the question text
     document.getElementById('question').innerText = questionData.question;
-
-    // Clear previous options
+    
     const optionsContainer = document.getElementById('options');
-    optionsContainer.innerHTML = '';
-
+    optionsContainer.innerHTML = '';  // Clear previous options
+    
     // Create radio buttons for each option
     questionData.options.forEach((option, index) => {
         const optionElement = document.createElement('div');
@@ -58,21 +49,20 @@ function showQuestion() {
     });
 }
 
-// Function to check the answer and move to the next question
 function nextQuestion() {
-    const selectedOption = document.querySelector('input[name="answer"]:checked');  // Get the selected radio button
-
+    const selectedOption = document.querySelector('input[name="answer"]:checked');
+    
     if (!selectedOption) {
         alert("Please select an answer!");  // Alert if no answer is selected
         return;  // Stop the function if no option is selected
     }
 
-    const userAnswer = selectedOption.value;  // Get the value of the selected radio button
+    const userAnswer = selectedOption.value;  // Get the selected answer
     answers.push(userAnswer);  // Save the user's answer
 
     // Check if the answer is correct
     if (userAnswer === questions[currentQuestion].correctAnswer) {
-        alert("Great next Question");
+        alert("Correct! Let's move on!");
     } else {
         alert("Hmm... not quite, but let's continue.");
     }
@@ -81,7 +71,7 @@ function nextQuestion() {
 
     // If there are more questions, update the question, else show the result
     if (currentQuestion < questions.length) {
-        showQuestion();  // Display the next question
+        showQuestion();
         document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false);  // Reset radio buttons
     } else {
         document.getElementById('question-container').style.display = 'none';
@@ -89,7 +79,6 @@ function nextQuestion() {
     }
 }
 
-// Function to show the final answer
 function showAnswer(answer) {
     const finalAnswer = answer === 'yes' ? "Yay! I'm so happy!" : "That's okay, maybe another time. 😅";
     document.getElementById('final-answer').innerText = finalAnswer;
@@ -98,8 +87,9 @@ function showAnswer(answer) {
     document.getElementById('answer-container').style.display = 'block';
 }
 
-// Show the first question when the page loads
-window.onload = showQuestion;
+window.onload = showQuestion;  // Show the first question when the page loads
+
+
 
 
 
