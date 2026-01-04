@@ -29,6 +29,13 @@ const questions = [
     }
 ];
 
+// This will be the special final question asked at the end
+const finalQuestion = {
+    question: "Will you be my girlfriend once again?",
+    options: ["Yes", "No"],
+    correctAnswer: "Yes" // Assuming the answer is 'Yes' for success.
+};
+
 // Show current question and options
 function showQuestion() {
     const questionData = questions[currentQuestion];
@@ -67,32 +74,70 @@ function nextQuestion() {
         alert("Hmm... not quite, but let's continue.");
     }
 
-    currentQuestion++;
+    currentQuestion++;  // Move to the next question
 
-    if (currentQuestion < questions.length) {
-        showQuestion();  
-        document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false); 
+    // If we're done with regular questions, show the final question
+    if (currentQuestion === questions.length) {
+        showFinalQuestion();  // Show the final question after all regular ones
     } else {
-        displayResults();  
+        showQuestion();  // Continue with the next regular question
+        document.querySelectorAll('input[name="answer"]').forEach(input => input.checked = false);
     }
 }
 
-// Display the final result after all questions
-function displayResults() {
+// Show the final question
+function showFinalQuestion() {
+    const questionData = finalQuestion;  // Use the final question
+
+    // Update the question text
+    document.getElementById('question').innerText = questionData.question;
+
+    // Prepare options for the final question
+    const optionsContainer = document.getElementById('options');
+    optionsContainer.innerHTML = '';  // Clear any previous options
+
+    questionData.options.forEach((option, index) => {
+        const optionElement = document.createElement('div');
+        optionElement.innerHTML = `
+            <input type="radio" name="answer" value="${option}" id="option${index}" />
+            <label for="option${index}">${option}</label>
+        `;
+        optionsContainer.appendChild(optionElement);
+    });
+
+    // Update the Next button to handle the final answer submission
+    document.querySelector("button").onclick = function() {
+        const selectedOption = document.querySelector('input[name="answer"]:checked');
+
+        if (!selectedOption) {
+            alert("Please select an answer!");
+            return;
+        }
+
+        const userAnswer = selectedOption.value;
+        answers.push(userAnswer);  // Save the final answer
+
+        // Check the answer and display the result
+        displayFinalResults(userAnswer);
+    };
+}
+
+// Display the final results based on the last answer
+function displayFinalResults(userAnswer) {
     const resultContainer = document.getElementById('result-container');
     resultContainer.style.display = 'block';
 
-    const finalQuestionAnswer = answers[answers.length - 1]; // Last answer
-    const finalMessage = finalQuestionAnswer === 'Yes' ? "Yay! I'm so happy!" : "That's okay, maybe another time. 😅";
-    
+    const finalMessage = userAnswer === 'Yes' ? "Yay! I'm so happy!" : "That's okay, maybe another time. 😅";
     document.getElementById('final-answer').innerText = finalMessage;
+
+    // Hide the quiz section now
+    document.getElementById('question-container').style.display = 'none';
 }
 
+// Ensure the DOM is ready before calling showQuestion
 window.addEventListener("DOMContentLoaded", function() {
-    showQuestion();  // Ensure DOM is ready before calling showQuestion
+    showQuestion();  // Start the quiz by showing the first question
 });
-
-
 
 
 
