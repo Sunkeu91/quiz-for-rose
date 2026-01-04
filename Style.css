@@ -1,0 +1,42 @@
+let currentQuestion = 0;
+let answers = [];
+
+const questions = [
+    "What's my favorite color?", 
+    "What's my favorite food?"
+];
+
+const correctAnswers = [
+    "blue", 
+    "pizza"
+];
+
+function nextQuestion() {
+    const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+    answers.push(userAnswer);
+
+    // Check if the answer is correct (you can customize this)
+    if (userAnswer === correctAnswers[currentQuestion].toLowerCase()) {
+        alert("Correct! Let's move on!");
+    } else {
+        alert("Hmm... not quite, but let's continue.");
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        document.getElementById('question').innerText = questions[currentQuestion];
+        document.getElementById('answer').value = '';
+    } else {
+        document.getElementById('question-container').style.display = 'none';
+        document.getElementById('result-container').style.display = 'block';
+    }
+}
+
+function showAnswer(answer) {
+    const finalAnswer = answer === 'yes' ? "Yay! I'm so happy!" : "That's okay, maybe another time. 😅";
+    document.getElementById('final-answer').innerText = finalAnswer;
+
+    document.getElementById('result-container').style.display = 'none';
+    document.getElementById('answer-container').style.display = 'block';
+}

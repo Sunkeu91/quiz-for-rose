@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Quiz to Ask You Out!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Mini Quiz to Ask You Out!</h1>
+        
+        <div id="question-container">
+            <p id="question">What's my favorite color?</p>
+            <input type="text" id="answer" placeholder="Type your answer here...">
+            <button onclick="nextQuestion()">Next</button>
+        </div>
+        
+        <div id="result-container" style="display: none;">
+            <h2>Final Question:</h2>
+            <p>Will you go out with me?</p>
+            <button onclick="showAnswer('yes')">Yes</button>
+            <button onclick="showAnswer('no')">No</button>
+        </div>
+
+        <div id="answer-container" style="display: none;">
+            <h2>Your answer: <span id="final-answer"></span></h2>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
